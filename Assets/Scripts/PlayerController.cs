@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerConto : MonoBehaviour
+public class PlayerContoroller : MonoBehaviour
 {
     //物理
     private Rigidbody2D rb;
@@ -28,8 +29,13 @@ public class PlayerConto : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;//回転を固定
+
         //ダッシュ準備
         DashPreparation();
+
+        //防御
+        Guard();
     }
 
     private void FixedUpdate()
@@ -86,7 +92,23 @@ public class PlayerConto : MonoBehaviour
         }
         transform.localScale = scale; // scaleを代入
                                       // rigidbody2Dのvelocity(速度)へ取得したRunSpeedを入れる。y方向は動かないのでそのままにする
+
         rb.velocity = new Vector2(RunSpeed, rb.velocity.y);
+    }
+
+    //防御
+    private void Guard()
+    {
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            this.tag = "Guard";
+            rb.constraints = RigidbodyConstraints2D.FreezePositionX;//X軸を固定
+        }
+        else if(Input.GetKeyUp(KeyCode.DownArrow))
+        {
+            this.tag = "Player";
+            rb.constraints = RigidbodyConstraints2D.None;//X軸固定を解除
+        }
     }
 
 }
