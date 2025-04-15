@@ -6,7 +6,7 @@ public class PlayerConto : MonoBehaviour
 {
     //•¨—
     private Rigidbody2D rb;
-
+    
     //ˆÚ“®ŠÖŒW
     private float RunSpeed = 3.0f;
 
