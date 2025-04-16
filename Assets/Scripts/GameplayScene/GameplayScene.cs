@@ -18,4 +18,6 @@ public class GameplayScene : MonoBehaviour
             SceneManager.LoadScene("ClearScene");
         }
     }
+    
+
 }
