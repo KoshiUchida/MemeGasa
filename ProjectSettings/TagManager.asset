@@ -6,12 +6,12 @@ TagManager:
   tags:
   - Guard
   - Right
-  - Left
+  - Umbrella
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Box
+  - 
   - Water
   - UI
   - 
