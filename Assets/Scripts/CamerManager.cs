@@ -2,34 +2,51 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CamerManager : MonoBehaviour
+public class CameraManager : MonoBehaviour
 {
+    int cameraIndex = 0;
+    bool isTransitioning = false; // 移動中かどうかのフラグ
+    float transitionCooldown = 0.3f; // 連続移動防止用のクールダウン時間
 
-    int cameraindex = 1;
+    Rigidbody2D rb;
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Camera cam = Camera.main;
+        if (isTransitioning) return;
 
-        // other は「触れた相手のCollider2D」
         string tagName = other.tag;
 
-        if (tagName == "Left")
+        if (tagName == "Right" && rb.velocity.x > 0.01f)
         {
-            cameraindex--; //Cameraのインデックスを一つ下げる
+            cameraIndex++;
+            MoveCamera();
         }
-        else if (tagName == "Right")
+        else if (tagName == "Left" && rb.velocity.x < -0.01f)
         {
-            cameraindex++; //Cameraのインデックスを一つ上げる
+            cameraIndex--;
+            MoveCamera();
         }
+    }
 
-        // 現在の位置を取得
+    void MoveCamera()
+    {
+        Camera cam = Camera.main;
         Vector3 pos = cam.transform.position;
+        Vector3 newPos = new Vector3(cameraIndex * 18, pos.y, pos.z);
 
-        // x と y の座標に倍率をかけて新しい位置を計算
-        Vector3 newPos = new Vector3(cameraindex * 6, pos.y, pos.z); // yとz はそのまま
-
-        // カメラの位置を更新
         cam.transform.position = newPos;
+
+        // クールダウン開始
+        isTransitioning = true;
+        Invoke("ResetTransition", transitionCooldown);
+    }
+
+    void ResetTransition()
+    {
+        isTransitioning = false;
     }
 }
