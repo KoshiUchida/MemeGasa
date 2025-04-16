@@ -17,5 +17,12 @@ public class GameplayScene : MonoBehaviour
         {
             SceneManager.LoadScene("ClearScene");
         }
+
+        if(Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            SceneManager.LoadScene("GameOverScene");
+        }
     }
+    
+
 }

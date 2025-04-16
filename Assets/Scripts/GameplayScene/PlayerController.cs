@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerContoroller : MonoBehaviour
 {
@@ -110,5 +111,4 @@ public class PlayerContoroller : MonoBehaviour
             rb.constraints = RigidbodyConstraints2D.None;//X²ŒÅ’è‚ğ‰ğœ
         }
     }
-
 }
