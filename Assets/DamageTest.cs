@@ -30,7 +30,7 @@ public class DamageTest : MonoBehaviour
 
         if(timer <= 0 )
         {
-
+            Attak();
             timer = AttakInv;
         }
 
@@ -43,7 +43,7 @@ public class DamageTest : MonoBehaviour
 
         if (Player != null && Player.tag != "Guaed")
         {
-            PlayerTest receiver = Player.GetComponent<PlayerTest>();
+            Damage receiver = Player.GetComponent<Damage>();
             if (receiver != null)
             {
                 receiver.TakeDamage(10);
