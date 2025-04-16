@@ -110,13 +110,5 @@ public class PlayerTest : MonoBehaviour
         }
     }
 
-    //追加点
-    public int health = 100;
-
-    public void TakeDamage(int amount)
-    {
-        health -= amount;
-        Debug.Log("ダメージを受けた!HP" + health);
-    }
-
+   
 }
