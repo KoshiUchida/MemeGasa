@@ -24,4 +24,9 @@ public class Damage : MonoBehaviour
         Debug.Log("ƒ_ƒ[ƒW‚ğó‚¯‚½!HP" + health);
     }
 
+    public int GetHealth()
+    {
+        return health;
+    }
+
 }

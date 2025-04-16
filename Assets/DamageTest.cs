@@ -18,7 +18,7 @@ public class DamageTest : MonoBehaviour
 
         if(Player == null)
         {
-            Player = GameObject.FindGameObjectWithTag("Player");
+            Player = GameObject.FindGameObjectWithTag("Umbrella");
         }
 
     }
