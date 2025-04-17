@@ -9,6 +9,7 @@ public class RespawnManager : MonoBehaviour
     private Vector3 checkpointPosition;
     public Transform player;
 
+    private List<IResettable> resetObjects = new List<IResettable>();
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -29,5 +30,13 @@ public class RespawnManager : MonoBehaviour
     public void RespawnPlayer()
     {
         player.position = checkpointPosition;
+    }
+
+    public void ResetAll()
+    {
+        foreach (var obj in resetObjects)
+        {
+            obj.ResetState();
+        }
     }
 }

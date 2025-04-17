@@ -16,13 +16,13 @@ public class BoxPushController : MonoBehaviour
         Collider2D rightBox = Physics2D.OverlapCircle(rightCheck.position, checkRadius, boxLayer);
 
         // ñÿî†Ç∆ÇÃè’ìÀÇêÿÇËë÷Ç¶
-        if (leftBox != null)
+        if (leftBox != null && rightBox == null)
         {
             //ç∂ë§Ç…Ç†ÇÈÇ∆Ç´ÇÃèàóù
             Physics2D.IgnoreCollision(GetComponent<Collider2D>(), leftBox, !pressingUp);
         }
 
-        if (rightBox != null)
+        if (rightBox != null && leftBox == null)
         {
             //âEë§Ç…Ç†ÇÈÇ∆Ç´ÇÃèàóù
             Physics2D.IgnoreCollision(GetComponent<Collider2D>(), rightBox, !pressingUp);
@@ -41,5 +41,29 @@ public class BoxPushController : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void BoxPotionSet()
+    {
+        //// ç∂ÅEâEÇ…ñÿî†Ç™Ç†ÇÈÇ©îªíË
+        //Collider2D leftBox = Physics2D.OverlapCircle(leftCheck.position, checkRadius, boxLayer);
+        //Collider2D rightBox = Physics2D.OverlapCircle(rightCheck.position, checkRadius, boxLayer);
+
+        //// ñÿî†Ç∆ÇÃè’ìÀÇêÿÇËë÷Ç¶
+        //if (leftBox != null)
+        //{
+        //    Vector2 leftBoxPosition = leftBox.transform.position;
+        //    leftBoxPosition.x -= 3f;
+
+        //    leftBox.transform.position = leftBoxPosition;
+        //}
+
+        //if (rightBox != null)
+        //{
+        //    Vector2 rightBoxPosition = rightBox.transform.position;
+        //    rightBoxPosition.x += 3f;
+
+        //    rightBox.transform.position = rightBoxPosition;
+        //}
     }
 }
