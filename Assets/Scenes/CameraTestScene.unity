@@ -1746,7 +1746,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boxLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   checkRadius: 0.1
   leftCheck: {fileID: 718316403}
   rightCheck: {fileID: 2069294388}
