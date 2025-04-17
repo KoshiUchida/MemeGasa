@@ -27,5 +27,19 @@ public class BoxPushController : MonoBehaviour
             //‰E‘¤‚É‚ ‚é‚Æ‚«‚Ìˆ—
             Physics2D.IgnoreCollision(GetComponent<Collider2D>(), rightBox, !pressingUp);
         }
+
+        if(rightBox == null && leftBox == null)
+        {
+            // –Ø” ‚ª‹ß‚­‚É‚È‚¢ê‡ ¨ ‚·‚×‚Ä‚Ì–Ø” ‚Æ‚ÌÕ“Ë‚ğON‚É–ß‚·
+            GameObject[] allBoxes = GameObject.FindGameObjectsWithTag("Box");
+            foreach (GameObject box in allBoxes)
+            {
+                Collider2D boxCol = box.GetComponent<Collider2D>();
+                if (boxCol != null)
+                {
+                    Physics2D.IgnoreCollision(GetComponent<Collider2D>(), boxCol, false);
+                }
+            }
+        }
     }
 }

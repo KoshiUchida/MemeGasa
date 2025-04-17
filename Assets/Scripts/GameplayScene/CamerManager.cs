@@ -6,12 +6,14 @@ public class CameraManager : MonoBehaviour
 {
     int cameraIndex = 0;
     bool isTransitioning = false; // 移動中かどうかのフラグ
-    float transitionCooldown = 0.3f; // 連続移動防止用のクールダウン時間
+    float transitionCooldown = 0.0f; // 連続移動防止用のクールダウン時間
 
     Rigidbody2D rb;
+    Transform playertransform;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        playertransform = this.transform; 
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -20,15 +22,21 @@ public class CameraManager : MonoBehaviour
 
         string tagName = other.tag;
 
+        Vector3 playerpos = playertransform.position;
+
         if (tagName == "Right" && rb.velocity.x > 0.01f)
         {
             cameraIndex++;
             MoveCamera();
+            playerpos.x += 0.5f;
+            playertransform.position = playerpos;
         }
         else if (tagName == "Left" && rb.velocity.x < -0.01f)
         {
             cameraIndex--;
             MoveCamera();
+            playerpos.x -= 0.5f;
+            playertransform.position = playerpos;
         }
     }
 
