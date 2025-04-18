@@ -32,7 +32,7 @@ public class EnemyAudio : MonoBehaviour
 
             //‰¹—Ê‚ðŒvŽZ
             float volume = Mathf.Clamp01(1 - (distance / maxDistance));
-            audioSource.volume = Mathf.Lerp(minVolume, maxDistance, volume);
+            audioSource.volume = Mathf.Lerp(minVolume, maxVolume, volume);
         }
     }
 }
