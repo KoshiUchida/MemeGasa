@@ -9,23 +9,58 @@ public class Ui : MonoBehaviour
     public GameObject textBox;
     public TMP_Text tutorialText;
 
+    public GameObject Camera;
+
+    public int X;
     private void Start()
     {
-        StartCoroutine(ShowTutorial());
+        //StartCoroutine(ShowTutorial());
+        X = 0;
+
     }
 
-
-    private IEnumerator ShowTutorial()
+    private void Update()
     {
-        yield return new WaitForSeconds(1f);
+        X = Camera.GetComponent<CameraManager>().GetIndex();
+        ShowText(X);
 
-        tutorialText.text = "左へ移動←右へ移動→";
-        textBox.SetActive(true);
 
-        yield return new WaitForSeconds(200f);
-
-        textBox.SetActive(false);
     }
 
-   
+
+    private void ShowText(int y)
+    {
+        switch (y)
+        {
+            case 0:
+
+                tutorialText.text = "左へ移動←右へ移動→";
+                Debug.Log("左右");
+                textBox.SetActive(true);
+
+
+                break;
+
+            case 1:
+
+                tutorialText.text = "↑キーで箱移動";
+                Debug.Log("hako");
+                textBox.SetActive(true);
+
+                break;
+
+            case 2:
+
+                tutorialText.text = "Eキーでセーブ";
+                Debug.Log("スポーン");
+                textBox.SetActive(true);
+
+                break;
+
+
+
+
+        }
+
+    }
 }
