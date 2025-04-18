@@ -47,7 +47,7 @@ public class CameraManager : MonoBehaviour
     {
         Camera cam = Camera.main;
         Vector3 pos = cam.transform.position;
-        Vector3 newPos = new Vector3(cameraIndex * 18, pos.y, pos.z);
+        Vector3 newPos = new Vector3(cameraIndex * 19f, pos.y, pos.z);
 
         cam.transform.position = newPos;
 
