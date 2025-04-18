@@ -14,42 +14,70 @@ public class Ui : MonoBehaviour
     public int X;
     private void Start()
     {
-        StartCoroutine(ShowTutorial());
-
+        //StartCoroutine(ShowTutorial());
+        X = 0;
 
     }
 
     private void Update()
     {
-        //X = Camera.GetComponent<CameraManager>().
-
+        X = Camera.GetComponent<CameraManager>().GetIndex();
+        ShowText(X);
 
 
     }
 
 
-    private IEnumerator ShowTutorial()
+    private void ShowText(int y)
     {
-        yield return new WaitForSeconds(0f);
+        switch (y)
+        {
+            case 0:
 
-        tutorialText.text = "左へ移動←右へ移動→";
-        Debug.Log("左右");
-        textBox.SetActive(true);
-
-        yield return new WaitForSeconds(2f);
-
-        textBox.SetActive(false);
-        Debug.Log("消えた");
+                tutorialText.text = "左へ移動←右へ移動→";
+                Debug.Log("左右");
+                textBox.SetActive(true);
 
 
-        tutorialText.text = "↑キーで箱移動";
-        Debug.Log("hako");
-        textBox.SetActive(true);
+                break;
 
-        yield return new WaitForSeconds(7f);
+            case 1:
 
-        textBox.SetActive(false);
+                tutorialText.text = "↑キーで箱移動";
+                Debug.Log("hako");
+                textBox.SetActive(true);
+
+                break;
+
+
+
+        }
 
     }
+
+
+    //private IEnumerator ShowTutorial()
+    //{
+    //    yield return new WaitForSeconds(0f);
+
+    //    tutorialText.text = "左へ移動←右へ移動→";
+    //    Debug.Log("左右");
+    //    textBox.SetActive(true);
+
+    //    yield return new WaitForSeconds(2f);
+
+    //    textBox.SetActive(false);
+    //    Debug.Log("消えた");
+
+
+    //    tutorialText.text = "↑キーで箱移動";
+    //    Debug.Log("hako");
+    //    textBox.SetActive(true);
+
+    //    yield return new WaitForSeconds(7f);
+
+    //    textBox.SetActive(false);
+
+    //}
    
 }

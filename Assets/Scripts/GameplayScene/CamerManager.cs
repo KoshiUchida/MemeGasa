@@ -62,4 +62,10 @@ public class CameraManager : MonoBehaviour
     {
         isTransitioning = false;
     }
+
+    public int GetIndex()
+    {
+        return cameraIndex;
+    }
+
 }
