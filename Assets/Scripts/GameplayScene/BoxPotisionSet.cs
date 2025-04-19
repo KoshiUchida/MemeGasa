@@ -30,12 +30,12 @@ public class BoxPotisionSet : MonoBehaviour
         if (tagName == "Right" && rb.velocity.x > 0.01f)
         {
             playerpos.x += 0.3f;
-            rb.AddForceX(70.0f);
+            rb.AddForceX(140.0f);
             playertransform.position = playerpos;
         }
         else if (tagName == "Left" && rb.velocity.x < -0.01f)
         {
-            rb.AddForceX(-70.0f);
+            rb.AddForceX(-140.0f);
             playerpos.x -= 0.3f;
             playertransform.position = playerpos;
         }

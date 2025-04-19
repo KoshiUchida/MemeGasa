@@ -89,6 +89,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 4.516667
+    functionName: PlaySound
+    data: 
+    objectReferenceParameter: {fileID: 11500000, guid: f4b42cb8109119f438378fb768c103c2, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 5.9666667
     functionName: FinishAttack
     data: 
