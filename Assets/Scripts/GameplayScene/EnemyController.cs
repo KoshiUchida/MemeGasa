@@ -84,12 +84,12 @@ public class EnemyController : MonoBehaviour
             { speed = 0; }
             else if (move == MOVE_TYPE.RIGHT)
             {
-                scale.x = 1;//‰EŒü‚«
+                scale.x = 0.7f;//‰EŒü‚«
                 speed = 1.3f;
             }
             else if (move == MOVE_TYPE.LEFT)
             {
-                scale.x = -1;
+                scale.x = -0.7f;
                 speed = -1.3f;
             }
             transform.localScale = scale;
