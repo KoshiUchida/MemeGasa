@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObjectReset : MonoBehaviour, IResettable
 {
     private Vector3 checkpointPosition;
-    public Transform Reset;
+    private Transform Reset;
 
     private void Start()
     {
