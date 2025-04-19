@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraManager : MonoBehaviour
+public class BoxPotisionSet : MonoBehaviour
 {
     int cameraIndex = 0;
     bool isTransitioning = false; // 移動中かどうかのフラグ
@@ -15,7 +15,7 @@ public class CameraManager : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        playertransform = this.transform; 
+        playertransform = this.transform;
         pushController = GetComponent<BoxPushController>();
     }
 
@@ -29,41 +29,20 @@ public class CameraManager : MonoBehaviour
 
         if (tagName == "Right" && rb.velocity.x > 0.01f)
         {
-            cameraIndex++;
-            MoveCamera();
-            playerpos.x += 1.2f;
+            playerpos.x += 0.3f;
+            rb.AddForceX(140.0f);
             playertransform.position = playerpos;
         }
         else if (tagName == "Left" && rb.velocity.x < -0.01f)
         {
-            cameraIndex--;
-            MoveCamera();
-            playerpos.x -= 1.2f;
+            rb.AddForceX(-140.0f);
+            playerpos.x -= 0.3f;
             playertransform.position = playerpos;
         }
-    }
-
-    void MoveCamera()
-    {
-        Camera cam = Camera.main;
-        Vector3 pos = cam.transform.position;
-        Vector3 newPos = new Vector3(cameraIndex * 18f, pos.y, pos.z);
-
-        cam.transform.position = newPos;
-
-        // クールダウン開始
-        isTransitioning = true;
-        Invoke("ResetTransition", transitionCooldown);
     }
 
     void ResetTransition()
     {
         isTransitioning = false;
     }
-
-    public int GetIndex()
-    {
-        return cameraIndex;
-    }
-
 }

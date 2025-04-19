@@ -10,7 +10,7 @@ public class PlayerContoroller : MonoBehaviour
     private Rigidbody2D rb;
     
     //ˆÚ“®ŠÖŒW
-    private float RunSpeed = 3.0f;
+    private float RunSpeed = 1.5f;
 
     public enum MOVE_TYPE
     {
@@ -82,13 +82,13 @@ public class PlayerContoroller : MonoBehaviour
         else if (move == MOVE_TYPE.RIGHT)
         {
             scale.x = 1; // ‰EŒü‚«
-            RunSpeed = 3;
+            RunSpeed = 1.5f;
 
         }
         else if (move == MOVE_TYPE.LEFT)
         {
             scale.x = -1; // ¶Œü‚«
-            RunSpeed = -3;
+            RunSpeed = -1.5f;
 
         }
         transform.localScale = scale; // scale‚ğ‘ã“ü
