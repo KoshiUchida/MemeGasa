@@ -176,7 +176,9 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      GroundAsiba_0: -3296894733317195343
+      GroundAsiba_1: -1690629023560317473
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
