@@ -20,23 +20,47 @@ public class PlayerContoroller : MonoBehaviour
     }
     public MOVE_TYPE move = MOVE_TYPE.STOP;//‰Šúó‘Ô‚Í’â~‚³‚¹‚é
 
+    //P
+    public GameObject umbrella;
+    int umbrellaDurability = 0;
+
+    //ƒTƒEƒ“ƒh
+    public AudioSource audioSource;
+    public AudioClip walk;
+
     // Start is called before the first frame update
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
         //Rigidbody2D‚Ìæ“¾
-        rb = GetComponent<Rigidbody2D>();   
+        rb = GetComponent<Rigidbody2D>();
+
+        umbrella = GameObject.Find("Umbrella(1)_0");
+
+        //‘Ï‹v‚Ì‰Šú‰»
+        umbrellaDurability = 0;
     }
 
     // Update is called once per frame
     private void Update()
     {
+        umbrellaDurability = umbrella.GetComponent<UmbrellaController>().GetDurability();
+
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;//‰ñ“]‚ğŒÅ’è
 
         //ƒ_ƒbƒVƒ…€”õ
         DashPreparation();
 
-        //–hŒä
-        Guard();
+        if (umbrellaDurability > 0)
+        {
+            //–hŒä
+            Guard();
+        }
+        else
+        {
+            this.tag = "Player";
+        }
     }
 
     private void FixedUpdate()
@@ -77,18 +101,20 @@ public class PlayerContoroller : MonoBehaviour
         if (move == MOVE_TYPE.STOP)
         {
             RunSpeed = 0;
-
+            audioSource.Stop();
         }
         else if (move == MOVE_TYPE.RIGHT)
         {
             scale.x = 1; // ‰EŒü‚«
             RunSpeed = 1.5f;
+            audioSource.Play();
 
         }
         else if (move == MOVE_TYPE.LEFT)
         {
             scale.x = -1; // ¶Œü‚«
             RunSpeed = -1.5f;
+            audioSource.Play();
 
         }
         transform.localScale = scale; // scale‚ğ‘ã“ü

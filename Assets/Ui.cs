@@ -76,6 +76,10 @@ public class Ui : MonoBehaviour
                 message = "Eキーでセーブ";
 
                 break;
+            case 3:
+                message = " ";
+
+                break;
 
             default:
                 return;

@@ -1,15 +1,15 @@
 fileFormatVersion: 2
-guid: eab7b2b0215aa86418cb05cb57a07400
+guid: 0419e5f2f802f664790f89d7742163bb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 782881819390281681
-    second: "\u76EE(\u7B2C2)_0"
+      213: 7120808900274057523
+    second: Umbrella(2)_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -53,7 +53,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 0
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -122,13 +122,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "\u76EE(\u7B2C2)_0"
+      name: Umbrella(2)_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1280
-        height: 720
+        width: 1000
+        height: 1000
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -136,8 +136,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1d78ed9edda5dda00800000000000000
-      internalID: 782881819390281681
+      spriteID: 331764697f132d260800000000000000
+      internalID: 7120808900274057523
       vertices: []
       indices: 
       edges: []
@@ -145,7 +145,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: e2811a401c98e434896a8dd9636f9b58
+    spriteID: 2fa7dc2330587734cabefd00f9866cc3
     internalID: 0
     vertices: []
     indices: 
@@ -153,7 +153,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "\u76EE(\u7B2C2)_0": 782881819390281681
+      Umbrella(2)_0: 7120808900274057523
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
