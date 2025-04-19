@@ -7,11 +7,11 @@ public class ObjectReset : MonoBehaviour, IResettable
     private Vector3 checkpointPosition;
     public Transform Reset;
 
-    private List<IResettable> resetObjects = new List<IResettable>();
-
     private void Start()
     {
+        Reset = this.transform;
         checkpointPosition = Reset.position; // ‰ŠúˆÊ’u‚ğ‹L˜^
+        RespawnManager.Instance.RegisterResettable(this);
     }
 
     public void ResetState()
