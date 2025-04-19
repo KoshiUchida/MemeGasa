@@ -32,6 +32,14 @@ public class RespawnManager : MonoBehaviour
         player.position = checkpointPosition;
     }
 
+    public void RegisterResettable(IResettable obj)
+    {
+        if (!resetObjects.Contains(obj))
+        {
+            resetObjects.Add(obj);
+        }
+    }
+
     public void ResetAll()
     {
         foreach (var obj in resetObjects)

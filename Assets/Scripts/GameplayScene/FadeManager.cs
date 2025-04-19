@@ -31,6 +31,9 @@ public class FadeManager : MonoBehaviour
         // フェードアウト
         yield return StartCoroutine(Fade(0f, 1f));
 
+        //オブジェクトリセット
+        RespawnManager.Instance.ResetAll();
+
         // プレイヤー復活
         RespawnManager.Instance.RespawnPlayer();
         RespawnManager.Instance.player.GetComponent<DeadManager>().Revive();
