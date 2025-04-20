@@ -26,7 +26,7 @@ public class DeadManager : MonoBehaviour
 
     private IEnumerator WaitAndFadeOut()
     {
-        yield return new WaitForSeconds(2f); // アニメ長さに応じて調整
+        yield return new WaitForSeconds(0f); // アニメ長さに応じて調整
         FadeManager.Instance.FadeOutAndRespawn();
     }
 

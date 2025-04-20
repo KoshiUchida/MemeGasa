@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraManager : MonoBehaviour
+public class CameraManager : MonoBehaviour , IResettable
 {
     int cameraIndex = 0;
     bool isTransitioning = false; // ˆÚ“®’†‚©‚Ç‚¤‚©‚Ìƒtƒ‰ƒO
@@ -14,6 +14,8 @@ public class CameraManager : MonoBehaviour
     Transform playertransform;
     void Start()
     {
+        RespawnManager.Instance.RegisterResettable(this);
+
         rb = GetComponent<Rigidbody2D>();
         playertransform = this.transform; 
         pushController = GetComponent<BoxPushController>();
@@ -66,4 +68,9 @@ public class CameraManager : MonoBehaviour
         return cameraIndex;
     }
 
+    public void ResetState()
+    {
+        cameraIndex = 0;
+        MoveCamera();
+    }
 }
