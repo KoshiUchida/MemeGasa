@@ -133,4 +133,9 @@ public class UmbrellaController : MonoBehaviour
     {
         return Durability;
     }
+
+    public void Reset()
+    {
+        Durability = 3;
+    }
 }

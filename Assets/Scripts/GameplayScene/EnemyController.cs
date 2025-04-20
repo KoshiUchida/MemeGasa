@@ -14,12 +14,16 @@ public class EnemyController : MonoBehaviour
     Rigidbody2D rb;//Rigidbody2Dを定義
     float speed;
 
+    public DeadManager deadManager; //死んだ時のマネージャー   
+
     public Transform player; // プレイヤーのTransform
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        deadManager = FindAnyObjectByType<DeadManager>();
+
     }
 
     // Update is called once per frame
@@ -100,4 +104,11 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.tag == "Player" || other.tag == "Guard")
+        {
+            deadManager.Die();
+        }
+    }
 }
