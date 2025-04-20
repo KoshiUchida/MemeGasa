@@ -82,8 +82,14 @@ public class Ui : MonoBehaviour
                 break;
             case 4:
                 message = "↑キーではしごを登る\n登ってる状態で上キーではしごを下る";
+                break;
 
+            case 5:
+                message = "↓キーで傘を開いて敵の視界から隠れる";
+                break;
 
+            case 6:
+                message = "傘地蔵の前でEキーを押すことで進行状況をセーブ\n二つの地蔵に触れることでステージクリア";
                 break;
 
             default:
