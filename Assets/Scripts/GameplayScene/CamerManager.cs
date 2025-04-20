@@ -1,12 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraManager : MonoBehaviour , IResettable
 {
+    public static CameraManager Instance;
+
     int cameraIndex = 0;
     bool isTransitioning = false; // 移動中かどうかのフラグ
     float transitionCooldown = 0.0f; // 連続移動防止用のクールダウン時間
+
+    int saveindex = 0;
 
     BoxPushController pushController;
 
@@ -68,9 +73,14 @@ public class CameraManager : MonoBehaviour , IResettable
         return cameraIndex;
     }
 
+    public void setIndex()
+    {
+        saveindex = cameraIndex;
+    }
+
     public void ResetState()
     {
-        cameraIndex = 0;
+        cameraIndex = saveindex;
         MoveCamera();
     }
 }
