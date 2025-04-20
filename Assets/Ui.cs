@@ -85,11 +85,11 @@ public class Ui : MonoBehaviour
                 break;
 
             case 5:
-                message = "↓キーで傘を開いたり茂みに隠れることで\n敵の視界から隠れる";
+                message = "↓キーで傘を開いたり\n茂みに隠れることで\n敵の視界から隠れる";
                 break;
 
             case 6:
-                message = "傘地蔵の前でEキーを押してをセーブ\n二つの地蔵に触るとステージクリア";
+                message = "傘地蔵の前で↑キーを押してセーブ\n二つの地蔵に触るとステージクリア";
                 break;
 
             default:

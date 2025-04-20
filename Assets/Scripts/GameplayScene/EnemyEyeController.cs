@@ -55,6 +55,8 @@ public class EnemyEyeController : MonoBehaviour
     {
         if (player.tag == "Player")
         {
+
+
             Debug.Log("UŒ‚‚É“–‚½‚Á‚½");
         }
         //if (umbrella.tag == "Guard")
