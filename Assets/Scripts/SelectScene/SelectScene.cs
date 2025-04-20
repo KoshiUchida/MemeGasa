@@ -12,11 +12,18 @@ public class SelectScene : MonoBehaviour
 
     int selectNumber;
 
+
+    private AudioSource audioSource;
+
+    public AudioClip moveSE;
+    public AudioClip selectSE;
+
     // Start is called before the first frame update
     void Start()
     {
         spriteRenderer.sprite = State1;
         selectNumber = 0;
+        audioSource = this.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -29,7 +36,12 @@ public class SelectScene : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                SceneManager.LoadScene("TutorialScene");
+                if (audioSource != null && selectSE != null)
+                {
+                    audioSource.PlayOneShot(selectSE);
+                }
+
+                Invoke("LoadSceneTutorial", 0.5f);
             }
 
         }
@@ -37,10 +49,25 @@ public class SelectScene : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                SceneManager.LoadScene("GameplayScene");
+                if (audioSource != null && selectSE != null)
+                {
+                    audioSource.PlayOneShot(selectSE);
+                }
+
+                Invoke("LoadSceneGamePlay", 0.5f);
             }
         }
 
+    }
+
+    void LoadSceneTutorial()
+    {
+        SceneManager.LoadScene("TutorialScene");
+    }
+
+    void LoadSceneGamePlay()
+    {
+        SceneManager.LoadScene("GameplayScene");
     }
 
 
@@ -49,6 +76,11 @@ public class SelectScene : MonoBehaviour
         //ステージ2へ
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
+            if (audioSource != null && moveSE != null)
+            {
+                audioSource.PlayOneShot(moveSE);
+            }
+
             if (selectNumber == 0 || selectNumber == -1)
             {
 
@@ -59,6 +91,11 @@ public class SelectScene : MonoBehaviour
         //ステージ1へ
         else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
+            if (audioSource != null && moveSE != null)
+            {
+                audioSource.PlayOneShot(moveSE);
+            }
+
             if (selectNumber == 0 || selectNumber == 1)
             {
                 selectNumber = -1;

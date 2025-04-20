@@ -20,7 +20,7 @@ public class SelectManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             if (audioSource != null && selectSE != null)
             {
