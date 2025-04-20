@@ -11,7 +11,7 @@ public class GoalManager : MonoBehaviour
         //ゴールした時の処理をここに記述
         Debug.Log($"ゴールしました");
 
-        SceneManager.LoadScene("ClearScene");
+        SceneManager.LoadScene("SelectScene");
  
 
     }

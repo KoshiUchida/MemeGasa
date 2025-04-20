@@ -15,12 +15,12 @@ public class GameplayScene : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            SceneManager.LoadScene("ClearScene");
+            SceneManager.LoadScene("SelectScene");
         }
 
         if(Input.GetKeyDown(KeyCode.LeftShift))
         {
-            SceneManager.LoadScene("GameOverScene");
+           // SceneManager.LoadScene("GameOverScene");
         }
     }
     
