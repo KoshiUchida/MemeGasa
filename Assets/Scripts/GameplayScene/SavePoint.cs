@@ -5,6 +5,15 @@ public class SavePoint : MonoBehaviour
     private bool isPlayerInRange = false;
     [SerializeField] private KeyCode saveKey = KeyCode.E;
 
+    CameraManager cameraManager;
+
+    private void Start()
+    {
+    
+        cameraManager = FindAnyObjectByType<CameraManager>();
+        
+    }
+
     private void Update()
     {
         if (isPlayerInRange && Input.GetKeyDown(saveKey))
@@ -12,6 +21,7 @@ public class SavePoint : MonoBehaviour
             RespawnManager.Instance.UpdateCheckpoint(transform.position);
             Debug.Log("セーブしました！");
             // エフェクト・SE・UI表示とかここでやる
+            CameraIndexSet();
         }
     }
 
@@ -21,6 +31,11 @@ public class SavePoint : MonoBehaviour
         {
             isPlayerInRange = true;
         }
+    }
+
+    private void CameraIndexSet()
+    {
+        cameraManager.setIndex();
     }
 
     private void OnTriggerExit2D(Collider2D other)
