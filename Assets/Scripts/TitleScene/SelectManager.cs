@@ -8,11 +8,26 @@ public class SelectManager : MonoBehaviour
     public string[] sceneNames;
     public int selectedIndex = 0;
 
+    private AudioSource audioSource;
+
+    public AudioClip selectSE;
+
+    void Start()
+    {
+        selectedIndex = 0;
+        audioSource = this.GetComponent<AudioSource>();
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            SceneManager.LoadScene(sceneNames[selectedIndex]);
+            if (audioSource != null && selectSE != null)
+            {
+                audioSource.PlayOneShot(selectSE);
+            }
+
+            Invoke("LoadScene", 0.5f);
         }
 
         if (Input.GetKeyDown(KeyCode.UpArrow))
@@ -32,5 +47,10 @@ public class SelectManager : MonoBehaviour
                 selectedIndex = 0;
             }
         }
+    }
+
+    void LoadScene()
+    {
+        SceneManager.LoadScene(sceneNames[selectedIndex]);
     }
 }

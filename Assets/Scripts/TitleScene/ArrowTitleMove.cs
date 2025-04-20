@@ -9,11 +9,26 @@ public class ArrowTitleMove : MonoBehaviour
     public RectTransform[] selectedPosition;
     public int selectedIndex = 0;
 
+    private AudioSource audioSource;
+
+    public AudioClip moveSE;
+
+    void Start()
+    {
+        selectedIndex = 0;
+        audioSource = this.GetComponent<AudioSource>();
+    }
+
     void Update()
     {
 
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
+            if (audioSource != null && moveSE != null)
+            {
+                audioSource.PlayOneShot(moveSE);
+            }
+
             selectedIndex--;
             if (selectedIndex < 0)
             {
@@ -23,6 +38,11 @@ public class ArrowTitleMove : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
+            if (audioSource != null && moveSE != null)
+            {
+                audioSource.PlayOneShot(moveSE);
+            }
+
             selectedIndex++;
             if (selectedIndex >= selectedPosition.Length)
             {
