@@ -65,6 +65,8 @@ public class EnemyEyeController : MonoBehaviour, IResettable
     {
         if (player.tag == "Player")
         {
+
+
             Debug.Log("UŒ‚‚É“–‚½‚Á‚½");
             deadManager.Die();
         }
