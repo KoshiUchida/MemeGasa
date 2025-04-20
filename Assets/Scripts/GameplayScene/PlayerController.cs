@@ -28,15 +28,19 @@ public class PlayerContoroller : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip walk;
 
+    //アニメーション
+    public Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
 
         //Rigidbody2Dの取得
         rb = GetComponent<Rigidbody2D>();
 
         umbrella = GameObject.Find("Umbrella(1)_0");
+
+        animator = GetComponent<Animator>();
 
         //耐久の初期化
         umbrellaDurability = 0;
@@ -102,19 +106,22 @@ public class PlayerContoroller : MonoBehaviour
         {
             RunSpeed = 0;
             audioSource.Stop();
+            animator.SetBool("Walk", false);
         }
         else if (move == MOVE_TYPE.RIGHT)
         {
-            scale.x = 1; // 右向き
+            scale.x = 0.2f; // 右向き
             RunSpeed = 1.5f;
             audioSource.Play();
+            animator.SetBool("Walk", true);
 
         }
         else if (move == MOVE_TYPE.LEFT)
         {
-            scale.x = -1; // 左向き
+            scale.x = -0.2f; // 左向き
             RunSpeed = -1.5f;
             audioSource.Play();
+            animator.SetBool("Walk", true);
 
         }
         transform.localScale = scale; // scaleを代入

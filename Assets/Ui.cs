@@ -70,14 +70,19 @@ public class Ui : MonoBehaviour
 
             case 2:
 
-                //tutorialText.text = "Eキーでセーブ";
+                //tutorialText.text = "穴に箱を落として進む";
                 //Debug.Log("スポーン");
                 //textBox.SetActive(true);
-                message = "Eキーでセーブ";
+                message = "穴に箱を落として進む";
 
                 break;
             case 3:
-                message = " ";
+                message = "↑キーで木を倒す";
+
+                break;
+            case 4:
+                message = "↑キーではしごを登る\n登ってる状態で上キーではしごを下る";
+
 
                 break;
 
